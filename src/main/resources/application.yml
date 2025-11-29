@@ -7,6 +7,10 @@ server:
   port: 8850
 
 app:
+  security:
+    token-server-url: http://localhost:9397
+    private-key: ${PRIVATE_SECRET}
+    client-id: ${CLIENT_ID_SECRET}
   pharmacy:
     url: http://localhost:8080
   supermarket:
