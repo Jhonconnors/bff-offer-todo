@@ -1,1 +1,13 @@
-spring.application.name=microservice-first
+spring:
+  output:
+    ansi:
+      enabled: always
+
+server:
+  port: 8850
+
+app:
+  pharmacy:
+    url: http://localhost:8080
+  supermarket:
+    url: http://localhost:7780
