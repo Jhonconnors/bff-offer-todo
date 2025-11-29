@@ -23,6 +23,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Tu endpoint público para Postman
                         .requestMatchers("/v1/**").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
 
                         // SI quieres protegerlos con token, cambiar por:
                         // .requestMatchers("/v1/supermarkets/**").authenticated()
@@ -42,7 +43,7 @@ public class SecurityConfig {
         // URLs permitidas (solo para navegador)
         config.setAllowedOrigins(List.of(
                 "http://localhost:9090",
-                "http://localhost:7780"
+                "http://localhost:3000"
         ));
 
         // Métodos permitidos

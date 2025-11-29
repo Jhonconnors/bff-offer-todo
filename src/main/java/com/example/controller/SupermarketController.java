@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1/supermarkets")
-// 2. AGREGAR ESTA LÍNEA (Permite que React se conecte)
-@CrossOrigin(origins = "*") 
 public class SupermarketController {
 
     @Autowired

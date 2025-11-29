@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1/farmacy")
-@CrossOrigin(origins = "*") // Permite que cualquier frontend llame a esta API
 public class PharmacyController {
 
     @Autowired
