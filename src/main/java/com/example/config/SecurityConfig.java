@@ -1,6 +1,7 @@
 package com.example.config;
 
 import com.example.config.auth.IpFilter;
+import com.example.config.auth.IpRateFilter;
 import com.example.config.auth.JwtAuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +32,9 @@ public class SecurityConfig {
     @Autowired
     private IpFilter ipFilter;
 
+    @Autowired
+    private IpRateFilter ipRateFilter;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -45,6 +49,7 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         // tu orden de filtros (ipFilter primero)
+        http.addFilterBefore(ipRateFilter, UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(ipFilter, UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
